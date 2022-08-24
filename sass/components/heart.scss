@@ -1,0 +1,44 @@
+.fullheart{                       
+    opacity:0;                   
+    font-size: 25px;
+    position: absolute;
+    top: 190px;
+    right: 26px;                            
+    background-image: linear-gradient(10deg,#f2d4f4,$secondary,$primary); 
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;         
+}   
+.emptyheart{
+    font-size: 25px;
+    position: absolute;
+    top: 190px;
+    right: 26px;
+    z-index: 1;
+    &:hover{
+        opacity: 0;
+        animation-name: contour-heart; 
+        animation-duration: 1000ms;   
+        +.fullheart{                            
+            opacity:1;                 
+            animation-name: progress-heart; 
+            animation-duration: 1000ms;
+        }
+    }            
+}        
+@keyframes contour-heart{
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
+    }
+}
+@keyframes progress-heart{                
+        from {
+            opacity: 0;   
+        }
+        to {
+            opacity:1;
+        }                   
+} 
